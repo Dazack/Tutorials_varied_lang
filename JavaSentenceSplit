@@ -1,0 +1,32 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+class StringSplit {
+    
+    public static void main(String[] args) {
+        
+        String sentence = "pay no attention to that man behind the curtain";
+        // System.out.println("Lenght:"+sentence.length()); // Length check
+        
+        int start = 0;
+        int end = -1;
+        for (int i = sentence.length()-1; i>=0; i--){
+            if(sentence.charAt(i) == ' '){
+                start = i;
+                String temp = sentence.substring(start+1,sentence.length());
+                // System.out.println("Printing temp index: " + temp.indexOf(" ")); // Used for checking index
+                
+                // Check if there is a space, only write out to 
+                if (temp.indexOf(" ") > -1){
+                    System.out.println(temp.substring(0, temp.indexOf(" ")));
+                } else { // Don't tidy this, its for first word to be printed
+                    System.out.println(temp);
+                }
+            } if (i==0) { // Get the first word from sentence
+                start = i; 
+                String temp = sentence.substring(start,sentence.indexOf(" "));
+                System.out.println(temp);
+            }
+        }
+    }
+}
